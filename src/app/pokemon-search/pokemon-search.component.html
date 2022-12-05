@@ -1,0 +1,17 @@
+<div class="buscador">
+  <img class="buscador" src="../../assets/img/Logo (1) 1.png"alt="">
+  <br>
+  <input type="text" placeholder="Search pokemon" [(ngModel)]="name" >
+  <input type="hidden"  #ascantidad  [(ngModel)]="cantidad" id="cantidad">
+  <input type="hidden"  #ascantidad  [(ngModel)]="lista" id="lista">
+  <br>
+  <button class="go" (click)="search()">Start</button>
+  <button class="sear" (click)="reset()">Reset</button>
+  <div #asmensaje  id="mensaje" style="color:red">{{mensaje}} </div>
+  <div #astarjeta id="tarjeta" ></div>
+
+  </div>
+
+
+
+

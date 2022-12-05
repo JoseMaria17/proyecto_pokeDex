@@ -1,0 +1,18 @@
+<header class="header">
+
+  <div class="header__logo">
+    <img  class="header__img"  src="../../assets/img/definitivo.png" alt="mi logo">
+  </div>
+  <button (click)="setActive()" class="header__button">
+    <i class=" icono fa-solid fa-bars"></i>
+  </button>
+  <nav class="header__nav "
+  [ngClass]="{'header__nav--activo' :active}">
+    <ul>
+        <li class="header__li"> <a href="" class="header__a">Home</a></li>
+        <li class="header__li"> <a href="Galery" class="header__a">Galery</a></li>
+        <li class="header__li"> <a href="batallapokemon" class="header__a">Types</a></li>
+    </ul>
+</nav>
+</header>
+

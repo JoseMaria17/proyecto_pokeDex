@@ -1,0 +1,16 @@
+<div #asgalery id="galery" class="pokemon-grid">
+  
+  <div id="{{pokemon.name}}" class="box"
+  *ngFor="let pokemon of pokemons  "> <!--paginate:{ itemsPerPage: 10, currentPage: page, totalItems: totalPokemons} -->
+    <img [src]="pokemon.sprites.front_default" alt="Pokemon">
+    <h3>{{pokemon.name.charAt(0).toUpperCase()+pokemon.name.slice(1)}}</h3>
+    <p>Type: {{pokemon.types[0].type.name.charAt(0).toUpperCase()+pokemon.types[0].type.name.slice(1)}}</p>
+    <p>Height:{{pokemon.height}}</p>
+    <p>Health:{{pokemon.stats[0].base_stat}}</p>
+    <p>Attack Power:{{pokemon.stats[1].base_stat}}</p>
+  </div>
+
+</div>
+
+<!-- <pagination-controls></pagination-controls> -->
+
