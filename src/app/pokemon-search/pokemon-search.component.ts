@@ -1,18 +1,20 @@
 import { style } from '@angular/animations';
 import { Component, OnInit, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { PokemonService } from '../service/pokemon.service';
+
 @Component({
   selector: 'app-pokemon-search',
   templateUrl: './pokemon-search.component.html',
   styleUrls: ['./pokemon-search.component.scss']
 })
+
 export class PokemonSearchComponent implements OnInit{
   name!:string;
   cantidad:number=0;
   lista:string='';
   mensaje:string=''
   
-  //es un referencia de la vista pokemen-seach.html astarjeta y asmensaje
+  //es un referencia de la vista pokemen-seach.html astarjeta
   @ViewChild('astarjeta') tarjeta!: ElementRef;
 
 
@@ -30,6 +32,7 @@ export class PokemonSearchComponent implements OnInit{
     this.cantidad=0 //inicializar variable
     this.lista='' 
   }
+
   search(){
 
 

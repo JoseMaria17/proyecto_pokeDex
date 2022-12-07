@@ -12,6 +12,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { PokemonSearchComponent } from './pokemon-search/pokemon-search.component';
 import { HomeComponent } from './home/home.component';
 import { PokemonBatleComponent } from './pokemon-batle/pokemon-batle.component';
+import { TypesComponent } from './types/types.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PokemonBatleComponent } from './pokemon-batle/pokemon-batle.component';
     PokemonListComponent,
     PokemonSearchComponent,
     HomeComponent,
-    PokemonBatleComponent
+    PokemonBatleComponent,
+    TypesComponent
   ],
   imports: [
     BrowserModule,

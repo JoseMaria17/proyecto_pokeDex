@@ -1,0 +1,16 @@
+img{
+  margin: 20px 300px;
+  @media screen and (max-width:600px){
+    width: 300px;
+    margin: 30px 30px;
+  }
+}
+
+.pokedex{
+  margin: 0px 430px;
+  width: 500px;
+  @media screen and (max-width:600px){
+    width: 300px;
+    margin: 20px 30px; 
+  }
+}

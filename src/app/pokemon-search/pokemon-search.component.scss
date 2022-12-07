@@ -11,41 +11,65 @@
   box-sizing: border-box;
 } 
 
-.buscador img{
-  width: 100px;
+ .buscador img{
+  width: 200px;
 
 }
- 
+
 
 .buscador{
-  margin: 20px 0px 20px 70px;
+  /* margin: 20px 0px 20px 70px; */
   text-align: center;
+  margin-top: 30px;
 }
 
 .buscador input{
-  margin-left: 120px;
+ /*  margin-left: 200px; */
   width: 300px;
-  height: 20px;
+  height: 30px;
   border: solid 1px black;
+  font-size: 20px;
+  justify-content: center;
 }
 
 .buscador button{
-  /* margin-left: 80px; */
+   margin-top: 20px; 
   width: 50px;
-  
+  height: 25px;
+  justify-content: center;
 }
 
-.go{
-  margin-left: 250px;
-}
 
-.sear{
-  margin-left:250px;
-}
 
 #tarjeta{
-  display: flex;
+  margin: 0px 30px ;
+  width: 300px;
+
+  
+  
+
+ 
 }
+
+#tarjeta .box{
+ margin-bottom: 20px;
+ background-color: red;
+ padding-bottom: 20px;
+}
+
+.col1{
+ /*  width:30% !important; */
+ margin: 10px;
+ }
+
+.col1 img{
+  width: 200px;
+} 
+
+#mensaje{
+  justify-content: center;
+}
+
 
 
 
@@ -70,9 +94,38 @@
     margin: 0px 10px;
   }
 
+.boton{
+    border: 1px solid white;
+    cursor: pointer;
+ }
+
+.efecto{
+  display: inline-block;
+  transform: perspective(1px) translateZ(0);
+ }
+
+ .efecto:hover,
+ .efecto:focus,
+ .efecto:active{
+  animation-name: efectoBoton;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+ }
+
+ @keyframes efectoBoton{
+  17%{transform: translateY(8px);}
+  34%{transform: translateY(-6px);}
+  50%{transform: translateY(4px);}
+  67%{transform: translateY(-2px);}
+  84%{transform: translateY(1px);}
+  100%{transform: translateY(0);}
+  
+ }
+
   #tarjeta{
     margin: 20px 10px;
-    width: 90%;
+    /* width: 90%; */
     display:flex;
     grid-gap:30px;
     padding: 50px;

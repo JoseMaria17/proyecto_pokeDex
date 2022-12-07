@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { PokemonBatleComponent } from './pokemon-batle/pokemon-batle.component';
+import { TypesComponent } from './types/types.component';
 
 const routes: Routes = [
   {
@@ -10,8 +10,8 @@ const routes: Routes = [
     component:HomeComponent
   },
   {
-    path:'plantilla',
-    component:HeaderComponent
+    path:'type',
+    component:TypesComponent
   },
   {
     path:'Galery',
