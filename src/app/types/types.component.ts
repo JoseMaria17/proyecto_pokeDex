@@ -9,7 +9,7 @@ import { DataService } from '../service/data.service';
 })
 export class TypesComponent implements OnInit{
   pokemons:any[]=[];
- 
+  clase_fondo!: String;
 
 
   constructor(
@@ -40,6 +40,42 @@ export class TypesComponent implements OnInit{
 
 
           });
+
+          switch (typeSelect) {
+            case 'Fire':
+              this.clase_fondo='rojo'
+              break;
+            case 'Water':
+              this.clase_fondo='azul'
+              break;
+            case 'Grass ':
+              this.clase_fondo='verde'
+              break
+            case 'Poison':
+              this.clase_fondo='rosa'
+              break
+            case 'Bug':
+              this.clase_fondo='negro'
+              break
+            case 'Flying':
+              this.clase_fondo='azul__claro'
+              break
+            case 'Normal':
+              this.clase_fondo='naranja'
+              break
+            case 'Fairy':
+              this.clase_fondo='rosa__claro'
+              break
+            case 'Psychic':
+              this.clase_fondo='verde__claro'
+              break
+            case 'Electric':
+              this.clase_fondo='amarillo'
+              break
+
+
+          }
+
 
           if(type.includes(typeSelect)) {
 
