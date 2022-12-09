@@ -10,7 +10,7 @@ Este proyecto fue realizado con el framework de angular y concistio en realizar 
    <li>Se creo el diseño en figma</li>
    <li>Se realizo un nuevo proyecto en angular con sus respectivos componentes y servicios</li>
    <li>Se modificaron los elementos de HTML,SCSS, y Typescript </li>
-   <li>Finalizado en proyecto con su recpectivo deploy se desplego en GITHUB PAGES</li>
+   <li>Finalizado el proyecto con su respectivo deploy se desplego en GITHUB PAGES</li>
 </ul>
 
 
