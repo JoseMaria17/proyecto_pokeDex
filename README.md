@@ -4,12 +4,13 @@
 Este proyecto fue realizado con el framework de angular y concistio en realizar una pokedex basado en los conocimientos que hemos adquirido en el trascurso de nuestro proceso de aprendizaje, apoyandonos en diferentes librerias y videos q encontramos en la web poniendonos a prueba y seperandonos a nosotros mismos.
 
 <h1>Pasos a seguir</h1>
+
 <ul>
-   <li></li>
-   <li></li>
-   <li></li>
-   <li></li>
-   <li></li>
+   <li>Se realizo un backlog con los pasos a seguir</li>
+   <li>Se creo el diseño en figma</li>
+   <li>Se realizo un nuevo proyecto en angular con sus respectivos componentes y servicios</li>
+   <li>Se modificaron los elementos de HTML,SCSS, y Typescript </li>
+   <li>Finalizado en proyecto con su recpectivo deploy se desplego en GITHUB PAGES</li>
 </ul>
 
 
