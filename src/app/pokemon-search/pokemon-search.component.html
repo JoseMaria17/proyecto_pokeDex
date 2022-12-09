@@ -2,11 +2,13 @@
   <img class="buscador" src="assets/img/Logo (1) 1.png"alt="">
   <br>
   <input type="text" (keyup)="lister()" placeholder="Search pokemon" [(ngModel)]="name" value="{{name}}">
-  <div id="lista-pk" >
-    <ul class="{{display}}">
+
+    <ul id="lista-pk" class="ul_list {{display}}">
     <li *ngFor="let pokemon of pokemons"  (click)="filter(pokemon.name)" >{{pokemon.name}}</li>
     </ul>
-  </div>
+
+   <!--- <div id="lista-pk" >
+  </div>-->
 
 
 
@@ -18,12 +20,12 @@
   <button class="sear boton efecto" (click)="reset()">Reset</button>
   <button class="sear boton efecto" (click)="aleatoria()">Random</button>
 
-  <div #asmensaje  id="mensaje" style="color:red">{{mensaje}} </div>
-  <div #astarjeta id="tarjeta" class="{{tarjeta}}">
+  <div #asmensaje  id="mensaje" style="color:blue">{{mensaje}} </div>
+  <div #astarjeta id="tarjeta" class="{{tarjeta}} ">
 
-    <div id="{{pokemon.name}}" class="box col1"
+    <div id="{{pokemon.name}}" class="box {{pokemon.fondo}} col1 efecto"
   *ngFor="let pokemon of pokemons_tj  ">
-    <img [src]="pokemon.img" alt="Pokemon">
+    <img class="boton efecto"  [src]="pokemon.img" alt="Pokemon">
     <h3>{{pokemon.name}}</h3>
     <p>Type: {{pokemon.types}}</p>
     <p>Height:{{pokemon.height}}</p>

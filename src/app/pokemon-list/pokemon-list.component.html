@@ -1,7 +1,7 @@
-<div #asgalery id="galery" class="pokemon-grid">
-  <div id="{{pokemon.name}}" class="box"
+<div  #asgalery id="galery" class="pokemon-grid ">
+  <div id="{{pokemon.name}}" class="box {{pokemon.fondo}} efecto"
   *ngFor="let pokemon of pokemons  ">
-    <img [src]="pokemon.img" alt="Pokemon">
+    <img class="boton efecto" [src]="pokemon.img" alt="Pokemon">
     <h3>{{pokemon.name}}</h3>
     <p>Type: {{pokemon.types}}</p>
     <p>Height:{{pokemon.height}}</p>
