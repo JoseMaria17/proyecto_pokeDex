@@ -1,6 +1,7 @@
 import { style } from '@angular/animations';
-import { Component, OnInit, ElementRef, Renderer2, ViewChild } from '@angular/core';
-import { PokemonService } from '../service/pokemon.service';
+import { ThisReceiver } from '@angular/compiler';
+import { Component, OnInit} from '@angular/core';
+import { DataService } from '../service/data.service';
 
 @Component({
   selector: 'app-pokemon-search',
@@ -12,33 +13,58 @@ export class PokemonSearchComponent implements OnInit{
   name!:string;
   cantidad:number=0;
   lista:string='';
+  tarjeta:string='';
   mensaje:string=''
-  
-  //es un referencia de la vista pokemen-seach.html astarjeta
-  @ViewChild('astarjeta') tarjeta!: ElementRef;
+  display:string='ocultar'
+  pokemons:any[]=[];//arreglo que contiene todos los nombres de los pokemones a mostrar en la lista
+  pokemons_all:any[]=[]; //arreglo q contiene todos nombres de los pokemones
+  pokemons_tj:any[]=[];//arreglo que contiene el detalle de los pokemons buscados 'tarjeta'
 
-
-  constructor( private pokemonService: PokemonService, private renderer2:Renderer2){}
+  constructor( private dataservice: DataService){}
 
   ngOnInit(): void {
 
+    //llamar al servicio y obtener todos los nombres de pokemon
+    this.dataservice.getPokemons()
+    .subscribe((response:any)=>{
+       response.results.forEach((result: { name: string; }) => {
+        //guardar en un arreglo todos los nombre
+        this.pokemons.push({'name':result.name});
+        this.pokemons_all.push({'name':result.name});
+      });
+  });
+
   }
+  //selecciona un pokemon de la lista
+  filter(namePokemon:any){
+    this.display='ocultar'
+    this.name=namePokemon
+  }
+  //busca un pokemon aleatorio
+  aleatoria(){
+    const aleatorio = this.pokemons_all[Math.floor(Math.random() * this.pokemons_all.length)];
+    this.name=aleatorio.name
+    this.search()
+  }
+  //nos muestra la lista de pokemones a buscar
+  lister(){
+    this.display='mostrar'
+    this.pokemons=[]
+    this.pokemons=this.pokemons_all.filter(x=>x.name.includes(this.name))
+  }
+
+  //reinicia toda la busqueda
   reset(){
-    const tarjeta = document.getElementById('tarjeta');
-    const astarjeta=this.tarjeta.nativeElement
-    tarjeta!.innerHTML=''  // limpitar tarjeta
+    this.pokemons_tj=[]
     this.mensaje=''
-    this.renderer2.removeClass(astarjeta, 'listo-tarjeta') // removeClass listo
+    this.tarjeta=''// removeClass listo
     this.cantidad=0 //inicializar variable
-    this.lista='' 
+    this.lista=''
   }
 
+  //busca y muestra los pokemones
   search(){
-
-
-      const astarjeta=this.tarjeta.nativeElement
       this.mensaje=''
-
        //verificar si ya existe el pokemon selecionado
        if(this.lista.includes(this.name.toLowerCase())) {
          this.mensaje='Ya eligio el pokemon: '+this.name
@@ -46,61 +72,41 @@ export class PokemonSearchComponent implements OnInit{
         // se verifica que solo ingrese 6 pokemon y se envia mensaje
         this.mensaje='Solo puede ingresar 6 pokemon'
     }else{
-       
-        // se llama servicio de getPokemon API
-        this.pokemonService.getPokemon(this.name.toLowerCase()).subscribe(
-          (d:any) =>{
-          
-          this.cantidad=this.cantidad+1; 
-          this.lista= this.lista+','+ d.name
-          const div =this.renderer2.createElement('div')
-          const img =this.renderer2.createElement('img')
-          const h3 =this.renderer2.createElement('h3')
-          const Type =this.renderer2.createElement('p')
-          const Height =this.renderer2.createElement('p')
-          const Health =this.renderer2.createElement('p')
-          const Attack =this.renderer2.createElement('p')
 
-          this.renderer2.addClass(div, 'box')
-          this.renderer2.setAttribute(img, 'src',d.sprites.front_default)
-          this.renderer2.addClass(div, 'col1')
-          this.renderer2.appendChild(div,img )
-          this.renderer2.appendChild(h3,this.renderer2.createText(d.name.charAt(0).toUpperCase()+d.name.slice(1)))
-          this.renderer2.appendChild(div,h3 )
+      // se llama servicio de getPokemon API
+      this.dataservice.getMoreData(this.name.toLowerCase()).subscribe(
+        (d:any) =>{
 
-          this.renderer2.appendChild(Type,this.renderer2.createText('Type: '+d.types[0].type.name.charAt(0).toUpperCase()+d.types[0].type.name.slice(1) ))
-          this.renderer2.appendChild(Height,this.renderer2.createText('Height: '+d.height ))
-          this.renderer2.appendChild(Health,this.renderer2.createText('Health: '+d.stats[0].base_stat))
-          this.renderer2.appendChild(Attack,this.renderer2.createText('Attack Power: '+d.stats[1].base_stat))
-          this.renderer2.appendChild(div,Type )
-          this.renderer2.appendChild(div,Height )
-          this.renderer2.appendChild(div,Health )
-          this.renderer2.appendChild(div,Attack )
-          
-          this.renderer2.appendChild(astarjeta,div )
+        this.cantidad=this.cantidad+1;
 
-          if(this.cantidad==6){
-            //agrega clases nueva para la tarjeta y se indica que esta listo 
-            this.renderer2.addClass(astarjeta, 'listo-tarjeta')
-            this.mensaje='Estas listo para la Batalla '
-  
-          }
+        let type='';
+        //guarda todos los tipos de los pokemones seleccionados ej Veneno, Aire
+        d.types.forEach((element: any) => {
+          type=type+element.type.name.charAt(0).toUpperCase()+element.type.name.slice(1)+' '
+        });
 
-        },(error :any) =>{
-          //se verifica el error
-          this.mensaje='El pokemon no existe'
-          
+        //se llena el arreglo para mostrar en el html
+        this.pokemons_tj.unshift({
+            'name':d.name.charAt(0).toUpperCase()+d.name.slice(1),
+            'img':d.sprites.front_default,
+            'height':d.height,
+            'health':d.stats[0].base_stat,
+            'atack':d.stats[1].base_stat,
+            'types':type});
+
+        if(this.cantidad==6){
+          //agrega clases nueva para la tarjeta y se indica que esta listo
+          this.tarjeta='listo-tarjeta'
+          this.mensaje='Este es tu equipo pokemon '
         }
-        )
 
-         //this.renderer2.addClass(astarjeta, 'pokemon-grid')
-    
-       
-  
-      }
+      },(error :any) =>{
+        //se verifica el error
+        this.mensaje='El pokemon no existe'
 
-
-
+      })
+      this.name=''
+    }
   }
 
 }

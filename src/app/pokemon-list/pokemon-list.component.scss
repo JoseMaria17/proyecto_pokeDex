@@ -23,6 +23,7 @@ grid-template-columns: repeat(auto-fit, minmax(23%, 1fr));
   display: grid;
   text-align: center;
   background-color: blue;
+  
 }
 
 
@@ -46,7 +47,7 @@ grid-template-columns: repeat(auto-fit, minmax(23%, 1fr));
 .pokemon-grid{
   display: flex;
   flex-wrap: wrap;
-  
+
   background-color: rgba(0, 0, 0, 0.712);
 
 }

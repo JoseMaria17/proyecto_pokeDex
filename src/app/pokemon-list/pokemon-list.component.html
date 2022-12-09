@@ -1,8 +1,6 @@
-<!-- <button (click)="typesPoke('Fire')">Fire</button>
-<button (click)="typesPoke('Water')">Water</button> -->
 <div #asgalery id="galery" class="pokemon-grid">
   <div id="{{pokemon.name}}" class="box"
-  *ngFor="let pokemon of pokemons  "> 
+  *ngFor="let pokemon of pokemons  ">
     <img [src]="pokemon.img" alt="Pokemon">
     <h3>{{pokemon.name}}</h3>
     <p>Type: {{pokemon.types}}</p>
@@ -10,7 +8,6 @@
     <p>Health:{{pokemon.health}}</p>
     <p>Attack Power:{{pokemon.atack}}</p>
   </div>
-
 </div>
 
 <!-- <pagination-controls></pagination-controls> -->

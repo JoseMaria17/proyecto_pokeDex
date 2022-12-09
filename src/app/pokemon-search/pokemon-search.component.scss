@@ -9,7 +9,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-} 
+}
 
  .buscador img{
   width: 200px;
@@ -32,8 +32,10 @@
   justify-content: center;
 }
 
+
+
 .buscador button{
-   margin-top: 20px; 
+   margin-top: 20px;
   width: 50px;
   height: 25px;
   justify-content: center;
@@ -45,10 +47,10 @@
   margin: 0px 30px ;
   width: 300px;
 
-  
-  
 
- 
+
+
+
 }
 
 #tarjeta .box{
@@ -64,15 +66,28 @@
 
 .col1 img{
   width: 200px;
-} 
+}
 
 #mensaje{
   justify-content: center;
 }
 
+.ocultar{
+  display: none;
+}
+.mostrar{
+display:block;
+}
+#lista-pk{
+  width: 200px;
+  border: solid 1px black;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.705);
 
-
-
+}
+#lista-pk li{
+  cursor: pointer;
+}
 
 
 }
@@ -86,8 +101,27 @@
   .buscador {
     justify-content: center;
     text-align: center;
-    
+
   }
+
+  #lista-pk{
+    width: 200px;
+    border: solid 1px black;
+    justify-content: center;
+    background-color: rgba(228, 225, 225, 0.699);
+    margin-left: 560px;
+  }
+  #lista-pk li{
+    cursor: pointer;
+  }
+
+  .ocultar{
+    display: none;
+  }
+.mostrar{
+  display:block;
+}
+
 
   button{
     width: 45px;
@@ -120,7 +154,7 @@
   67%{transform: translateY(-2px);}
   84%{transform: translateY(1px);}
   100%{transform: translateY(0);}
-  
+
  }
 
   #tarjeta{
