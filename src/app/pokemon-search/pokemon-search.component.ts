@@ -50,7 +50,7 @@ export class PokemonSearchComponent implements OnInit{
   lister(){
     this.display='mostrar'
     this.pokemons=[]
-    this.pokemons=this.pokemons_all.filter(x=>x.name.includes(this.name))
+    this.pokemons=this.pokemons_all.filter(x=>x.name.includes(this.name.toLowerCase()))
   }
 
   //reinicia toda la busqueda
@@ -126,7 +126,7 @@ export class PokemonSearchComponent implements OnInit{
             'health':d.stats[0].base_stat,
             'atack':d.stats[1].base_stat,
             'types':type,
-            'fondo': clase_fondo});
+            'fondo':  clase_fondo});
 
         if(this.cantidad==6){
           //agrega clases nueva para la tarjeta y se indica que esta listo

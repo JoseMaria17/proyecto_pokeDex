@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './pokemon-batle.component.html',
   styleUrls: ['./pokemon-batle.component.scss']
 })
+
 export class PokemonBatleComponent {
 
 }

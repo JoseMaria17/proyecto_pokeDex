@@ -6,11 +6,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
+
 export class HeaderComponent implements OnInit{
 
 public active:boolean=false
 
-  constructor(
+constructor(
 
   ){}
 
